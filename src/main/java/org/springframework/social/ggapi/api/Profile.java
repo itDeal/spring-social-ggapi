@@ -27,7 +27,8 @@ import java.io.Serializable;
 public class Profile implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-    private final static String PROFILE_URL = "http://www.mojageneracja.pl/";
+//    private final static String PROFILE_URL = "http://www.mojageneracja.pl/";
+    private final static String PROFILE_URL = "http://www.gg.pl/#profile/";
     private final static String PROFILE_AVATAR_URL = "http://avatars.gg.pl/";
 
     private final long id;
