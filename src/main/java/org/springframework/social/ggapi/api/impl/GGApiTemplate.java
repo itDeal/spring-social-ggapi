@@ -22,6 +22,7 @@ import org.springframework.social.ggapi.api.FriendOperations;
 import org.springframework.social.ggapi.api.GGApi;
 import org.springframework.social.ggapi.api.UserOperations;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
+import org.springframework.social.oauth2.OAuth2Version;
 
 /**
  * This is the central class for interacting with GGApi.
@@ -54,6 +55,12 @@ public class GGApiTemplate  extends AbstractOAuth2ApiBinding implements GGApi {
     public UserOperations userOperations() {
         return userOperations;
     }
+
+    // AbstractOAuth2ApiBinding hooks
+	@Override
+	protected OAuth2Version getOAuth2Version() {
+		return OAuth2Version.DRAFT_10;
+	}
 
     @Override
 	protected MappingJacksonHttpMessageConverter getJsonMessageConverter() {
