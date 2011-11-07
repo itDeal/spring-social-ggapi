@@ -17,6 +17,7 @@
 package org.springframework.social.ggapi.api.impl;
 
 import org.springframework.social.ggapi.api.Profile;
+import org.springframework.social.ggapi.api.ProfileListResult;
 import org.springframework.social.ggapi.api.UserOperations;
 import org.springframework.web.client.RestTemplate;
 
@@ -52,11 +53,13 @@ class UserTemplate extends AbstractGGapiOperations implements UserOperations {
     @Override
     public Profile getUserProfile() {
         requireAuthorization();
-        return restTemplate.getForObject(GGAPI_PUBDIR_ME_URL, Profile.class);
+        ProfileListResult profiles = restTemplate.getForObject(GGAPI_PUBDIR_ME_URL, ProfileListResult.class);
+        return profiles.getResult().getProfiles().get(0);
     }
 
     @Override
     public Profile getUserProfile(long userId) {
-        return restTemplate.getForObject(GGAPI_PUBDIR_URL + userId, Profile.class);
+        ProfileListResult profiles = restTemplate.getForObject(GGAPI_PUBDIR_URL + userId, ProfileListResult.class);
+        return profiles.getResult().getProfiles().get(0);
     }
 }

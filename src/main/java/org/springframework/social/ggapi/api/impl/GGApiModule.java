@@ -19,6 +19,8 @@ import org.codehaus.jackson.Version;
 import org.codehaus.jackson.map.module.SimpleModule;
 import org.springframework.social.ggapi.api.Friend;
 import org.springframework.social.ggapi.api.Profile;
+import org.springframework.social.ggapi.api.ProfileList;
+import org.springframework.social.ggapi.api.ProfileListResult;
 
 
 /**
@@ -31,6 +33,8 @@ class GGApiModule extends SimpleModule {
 	
 	@Override
 	public void setupModule(SetupContext context) {
+        context.setMixInAnnotations(ProfileListResult.class, ProfileListResultMixin.class);
+        context.setMixInAnnotations(ProfileList.class, ProfileListMixin.class);
 		context.setMixInAnnotations(Profile.class, ProfileMixin.class);
 		context.setMixInAnnotations(Friend.class, FriendMixin.class);
 	}
