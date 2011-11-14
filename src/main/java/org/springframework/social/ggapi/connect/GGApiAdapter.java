@@ -30,7 +30,16 @@ import org.springframework.social.ggapi.api.Profile;
  */
 public class GGApiAdapter implements ApiAdapter<GGApi> {
 
-	public boolean test(GGApi GGApi) {
+    /**
+     * clientId is used for generating avatar URL.
+     */
+    private final String consumerKey;
+
+    public GGApiAdapter(String consumerKey) {
+        this.consumerKey = consumerKey;
+    }
+
+    public boolean test(GGApi GGApi) {
 		try {
 			GGApi.userOperations().getUserProfile();
 			return true;
@@ -39,20 +48,20 @@ public class GGApiAdapter implements ApiAdapter<GGApi> {
 		}
 	}
 
-	public void setConnectionValues(GGApi GGApi, ConnectionValues values) {
-		Profile profile = GGApi.userOperations().getUserProfile();
+	public void setConnectionValues(GGApi ggApi, ConnectionValues values) {
+		Profile profile = ggApi.userOperations().getUserProfile();
 		values.setProviderUserId(Long.toString(profile.getId()));
 		values.setDisplayName(profile.getLabel());
 		values.setProfileUrl(profile.getProfileUrl());
-		values.setImageUrl(profile.getAvatarUrl());
+		values.setImageUrl(profile.getAvatarUrl(this.consumerKey));
 	}
 
-	public UserProfile fetchUserProfile(GGApi GGApi) {
-		Profile profile = GGApi.userOperations().getUserProfile();
+	public UserProfile fetchUserProfile(GGApi ggApi) {
+		Profile profile = ggApi.userOperations().getUserProfile();
 		return new UserProfileBuilder().setName(profile.getName()).setUsername(profile.getLabel()).build();
 	}
 	
-	public void updateStatus(GGApi GGApi, String message) {
+	public void updateStatus(GGApi ggApi, String message) {
 		// nothing
 	}
 	

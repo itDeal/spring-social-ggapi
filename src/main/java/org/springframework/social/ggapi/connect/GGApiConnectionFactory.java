@@ -26,7 +26,7 @@ import org.springframework.social.ggapi.api.GGApi;
 public class GGApiConnectionFactory extends OAuth2ConnectionFactory<GGApi> {
 
 	public GGApiConnectionFactory(String consumerKey, String consumerSecret) {
-        super("ggapi", new GGApiServiceProvider(consumerKey, consumerSecret), new GGApiAdapter());
+        super("ggapi", new GGApiServiceProvider(consumerKey, consumerSecret), new GGApiAdapter(consumerKey));
 	}
 	
 }

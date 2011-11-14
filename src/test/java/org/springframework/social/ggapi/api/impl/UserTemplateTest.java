@@ -49,7 +49,6 @@ public class UserTemplateTest extends AbstractGGApiApiTest {
         assertEquals("2000-01-07T01:00:00+01:00", me.getBirth());
         assertEquals(2, me.getGender());
         assertEquals("Warszawa", me.getCity());
+        assertEquals("http://avatars.api.gg.pl/files/clientId,12345/user,9200922362184425977/", me.getAvatarUrl("12345"));
     }
-
-
 }
