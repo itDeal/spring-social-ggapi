@@ -28,9 +28,9 @@ public class Profile implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     private final static String PROFILE_URL = "http://www.gg.pl/#profile/";
-    private final static String PROFILE_AVATAR_URL_FORMAT = "http://avatars.api.gg.pl/files/clientId,%s/user,%d/";
+    private final static String PROFILE_AVATAR_URL_FORMAT = "http://avatars.api.gg.pl/files/clientId,%s/user,%s/";
 
-    private final long id;
+    private final String id;
     private final String type;
     private final String label;
     private final String name;
@@ -38,7 +38,7 @@ public class Profile implements Serializable {
     private final int gender;
     private final String city;
 
-    public Profile(long id, String type, String label, String name, String birth, int gender, String city) {
+    public Profile(String id, String type, String label, String name, String birth, int gender, String city) {
         this.id = id;
         this.type = type;
         this.label = label;
@@ -52,7 +52,7 @@ public class Profile implements Serializable {
         return serialVersionUID;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 

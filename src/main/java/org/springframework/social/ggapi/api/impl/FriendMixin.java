@@ -30,7 +30,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 abstract class FriendMixin {
 	@JsonCreator
     FriendMixin(
-            @JsonProperty("id") long id,
+            @JsonProperty("id") String id,
             @JsonProperty("type") String type,
             @JsonProperty("label") String label) {}
 }

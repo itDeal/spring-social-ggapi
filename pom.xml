@@ -4,7 +4,7 @@
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-ggapi</artifactId>
 	<name>Spring Social GGAPI</name>
-	<version>0.3-SNAPSHOT</version>
+	<version>0.4-SNAPSHOT</version>
 
 	<properties>
 		<spring.social.version>1.0.0.RELEASE</spring.social.version>

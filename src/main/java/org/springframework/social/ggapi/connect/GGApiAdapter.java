@@ -50,7 +50,7 @@ public class GGApiAdapter implements ApiAdapter<GGApi> {
 
 	public void setConnectionValues(GGApi ggApi, ConnectionValues values) {
 		Profile profile = ggApi.userOperations().getUserProfile();
-		values.setProviderUserId(Long.toString(profile.getId()));
+		values.setProviderUserId(profile.getId());
 		values.setDisplayName(profile.getLabel());
 		values.setProfileUrl(profile.getProfileUrl());
 		values.setImageUrl(profile.getAvatarUrl(this.consumerKey));

@@ -39,7 +39,7 @@ class UserTemplate extends AbstractGGapiOperations implements UserOperations {
 	}
 
     @Override
-    public long getProfileId() {
+    public String getProfileId() {
         requireAuthorization();
         return getUserProfile().getId();
     }
@@ -58,7 +58,7 @@ class UserTemplate extends AbstractGGapiOperations implements UserOperations {
     }
 
     @Override
-    public Profile getUserProfile(long userId) {
+    public Profile getUserProfile(String userId) {
         ProfileListResult profiles = restTemplate.getForObject(GGAPI_PUBDIR_URL + userId, ProfileListResult.class);
         return profiles.getResult().getProfiles().get(0);
     }

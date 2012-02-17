@@ -42,7 +42,7 @@ public class UserTemplateTest extends AbstractGGApiApiTest {
 
         Profile me = ggapi.userOperations().getUserProfile();
 
-        assertEquals(9200922362184425977L, me.getId());
+        assertEquals("9200922362184425977", me.getId());
         assertEquals("user", me.getType());
         assertEquals("SpOOnman", me.getLabel());
         assertEquals("Tomasz", me.getName());

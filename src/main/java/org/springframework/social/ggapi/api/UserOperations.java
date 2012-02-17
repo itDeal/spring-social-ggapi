@@ -32,7 +32,7 @@ public interface UserOperations {
 	 * @throws ApiException if there is an error while communicating with GGApi.
 	 * @throws MissingAuthorizationException if GGApiTemplate was not created with OAuth credentials.
 	 */
-	long getProfileId();
+	String  getProfileId();
 	
 	/**
 	 * Retrieves the authenticated user's GGApi screen name
@@ -57,5 +57,5 @@ public interface UserOperations {
 	 * @return a {@link Profile} object representing the user's profile.
 	 * @throws ApiException if there is an error while communicating with GGApi.
 	 */
-	Profile getUserProfile(long userId);
+	Profile getUserProfile(String userId);
 }
